@@ -1,0 +1,27 @@
+# AWS Glue Job Configuration
+
+# Name of the Glue job
+job_name: my-glue-job
+
+# IAM role ARN for the Glue job
+role: arn:aws:iam::123456789012:role/service-role/GlueJobRole
+
+# Location of the Glue ETL script
+script_location: s3://my-bucket/glue-scripts/my-glue-script.py
+
+# Default arguments for the Glue job (if any)
+default_arguments:
+  "--job-language": "python"
+  "--job-bookmark-option": "job-bookmark-disable"
+  "--TempDir": "s3://my-bucket/glue-temp/"
+
+# Input configuration for reading data from CSV
+input_path: s3://my-bucket/input/customers.csv
+
+# CSV format options
+csv_format:
+  delimiter: ","
+  header: true
+  inferSchema: true
+
+# Additional job-specific parameters can be added here
